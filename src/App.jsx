@@ -1,21 +1,34 @@
-
-import './App.css';
-import Chat from './components/Chat';
+import { Container, AppBar, Toolbar, Typography, Box } from '@mui/material';
+import GavelIcon from '@mui/icons-material/Gavel';
+import InfoCard from './components/InfoCard';
+import ChatMui from './components/ChatMui';
 
 function App() {
   return (
-    <div className="app">
-      <header>
-        <h1>⚖️ Alimentos al Día</h1>
-        <p>Asistente legal ciudadano para pensión de alimentos en Perú</p>
-      </header>
-      <main>
-        <Chat />
-      </main>
-      <footer>
-        <small>Información meramente orientativa. No reemplaza el asesoramiento de un abogado.</small>
-      </footer>
-    </div>
+    <>
+      <AppBar position="static" color="primary">
+        <Toolbar>
+          <GavelIcon sx={{ mr: 2 }} />
+          <Typography variant="h6" sx={{ flexGrow: 1 }}>
+            CODEA
+          </Typography>
+          <Typography variant="subtitle2">
+            Consulta de Demanda de Alimentos
+          </Typography>
+        </Toolbar>
+      </AppBar>
+
+      <Container maxWidth="lg" sx={{ mt: 3, mb: 4 }}>
+        <InfoCard />
+        <ChatMui />
+      </Container>
+
+      <Box component="footer" sx={{ textAlign: 'center', py: 2, bgcolor: '#f0f2f5', mt: 4 }}>
+        <Typography variant="caption" color="textSecondary">
+          ⚖️ Información meramente orientativa. No reemplaza el asesoramiento legal profesional.
+        </Typography>
+      </Box>
+    </>
   );
 }
 
